@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>B R I D G E</title>
+	<meta name="author" content="Justin Platz">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+
+
+</head>
+
+<body>
+    <script src="http://cdn.pubnub.com/pubnub-3.7.12.min.js"></script>
+    
+    <div style="text-align:center;">
+        <div>
+            <img src="http://www.w3schools.com/js/pic_bulboff.gif" id="bulb">
+            <img src="qr.png" id="bulb">
+        </div>
+        <div style="margin-top: 2em; margin-bottom: 2em;">
+            <img src="http://www.w3schools.com/js/pic_bulboff.gif" id="bulb1">
+            <img src="qr1.png" id="bulb1">
+        </div>    
+        <div>
+            <img src="http://www.w3schools.com/js/pic_bulboff.gif" id="bulb2">
+            <img src="qr2.png" id="bulb2">
+        </div>    
+    </div>
+    
+    <script>
+         var pubnub = PUBNUB({
+            subscribe_key:"sub-c-34be47b2-f776-11e4-b559-0619f8945a4f", // always required
+            publish_key:"pub-c-f83b8b34-5dbc-4502-ac34-5073f2382d96"    // only required if publishing
+        });
+
+         pubnub.subscribe({
+            channel: "qr_demo",
+            message: function(m){
+                var blub = document.getElementById('bulb');
+                if (document.getElementById('bulb').src == 'http://www.w3schools.com/js/pic_bulbon.gif') {
+                    console.log('turn it off');
+                    document.getElementById('bulb').src = 'http://www.w3schools.com/js/pic_bulboff.gif';
+                  } 
+                else if(document.getElementById('bulb').src == 'http://www.w3schools.com/js/pic_bulboff.gif') {
+                    console.log('turn it on');
+                    document.getElementById('bulb').src = 'http://www.w3schools.com/js/pic_bulbon.gif';
+                }
+            },
+            error: function (error) {
+              // Handle error here
+              console.log(JSON.stringify(error));
+            }
+        });
+        
+        
+        
+        pubnub.subscribe({
+            channel: "qr_demo1",
+            message: function(m){
+                console.log(m);
+            var blub = document.getElementById('bulb1');
+                if (document.getElementById('bulb1').src == 'http://www.w3schools.com/js/pic_bulbon.gif') {
+                    console.log('turn it off');
+                    document.getElementById('bulb1').src = 'http://www.w3schools.com/js/pic_bulboff.gif';
+                  } 
+                else if(document.getElementById('bulb1').src == 'http://www.w3schools.com/js/pic_bulboff.gif') {
+                    console.log('turn it on');
+                    document.getElementById('bulb1').src = 'http://www.w3schools.com/js/pic_bulbon.gif';
+                }
+            },
+            error: function (error) {
+              // Handle error here
+              console.log(JSON.stringify(error));
+            }
+        });
+        
+        
+        
+        pubnub.subscribe({
+            channel: "qr_demo2",
+            message: function(m){
+            var blub = document.getElementById('bulb2');
+                if (document.getElementById('bulb2').src == 'http://www.w3schools.com/js/pic_bulbon.gif') {
+                    console.log('turn it off');
+                    document.getElementById('bulb2').src = 'http://www.w3schools.com/js/pic_bulboff.gif';
+                  } 
+                else if(document.getElementById('bulb2').src == 'http://www.w3schools.com/js/pic_bulboff.gif') {
+                    console.log('turn it on');
+                    document.getElementById('bulb2').src = 'http://www.w3schools.com/js/pic_bulbon.gif';
+                }
+            },
+            error: function (error) {
+              // Handle error here
+              console.log(JSON.stringify(error));
+            }
+        });
+    </script>
+</body>
+    
+</html>
+

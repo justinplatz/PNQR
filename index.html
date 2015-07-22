@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>B R I D G E</title>
+    <link href=style.css rel=stylesheet type=text/css>
+	<meta name="author" content="Justin Platz">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <script type="text/javascript" src="llqrcode.js"></script>
+<!--    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>-->
+    <script type="text/javascript" src="webqr.js"></script>
+       <link href=main.css rel=stylesheet type=text/css>
+
+
+</head>
+
+<body>
+    <script src="http://cdn.pubnub.com/pubnub-3.7.12.min.js"></script>
+    <div id="main">
+        <div id="header">
+            <div style="position:relative;top:+20px;left:0px;">
+                <g:plusone size="medium"></g:plusone>
+            </div>
+            
+        </div>
+    <div id="mainbody">
+        <table class="tsel" border="0" width="100%">
+            <tr>
+                <td valign="top" align="center" width="50%">
+                    <table class="tsel" border="0">
+                        <tr>
+
+                            <td><img class="selector" id="qrimg" src="http://webqr.com/cam.png" onclick="setimg()" align="right"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                            <div id="outdiv"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                <img src="http://webqr.com/down.png"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                <div id="result"></div>
+                  
+                </td>
+            </tr>
+        </table>
+    </div>&nbsp;
+   
+    </div>
+    <canvas id="qr-canvas" width="800" height="600"></canvas>
+    <script type="text/javascript">load();</script>
+    
+    <button onclick="publish()">On / Off</button>
+</body>
+    
+</html>
+
